@@ -6,49 +6,74 @@
   <title>Gihan Kariyawasam — e-Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    /* Enable smooth scrolling */
-    html {
-      scroll-behavior: smooth;
+    /* Same base styles from before */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0; padding: 0;
+      color: #24292e;
+      background: linear-gradient(120deg, #f0f7ff, #ffffff);
     }
+    .container { max-width: 950px; margin: 40px auto; padding: 0 20px; }
 
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; padding: 0; color:#24292e; background:#fefefe; }
-    .container { max-width: 950px; margin: 40px auto; padding: 0 20px;}
-    header { border-bottom:2px solid #e1e4e8; padding-bottom:20px; margin-bottom:32px; text-align:center;}
-    h1 { font-size: 32px; margin: 0; color:#0366d6; }
-    p.lead { margin:8px 0 0; color:#586069; font-size:18px; }
-    nav a { margin:0 10px; color:#0366d6; text-decoration:none; font-weight:600; }
-    section { margin-bottom:36px; }
-    .card { border:1px solid #e1e4e8; padding:20px; border-radius:10px; background:#fafbfc; }
-    dt { font-weight:600; }
-    dd { margin:0 0 12px 0; }
-    .small { font-size:90%; color:#586069; }
-    a.button { display:inline-block; padding:10px 16px; border-radius:6px; border:1px solid #0366d6; text-decoration:none; color:#fff; background:#0366d6; font-weight:bold; }
-    a.button:hover { background:#024f9c; }
-    footer { border-top:1px solid #e1e4e8; padding-top:16px; text-align:center; color:#586069; font-size:90%; margin-top:40px; }
+    header { background: #0366d6; color: #fff; padding: 30px 20px; border-radius: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    header h1 { font-size: 34px; margin: 0; }
+    header p.lead { margin: 8px 0 0; font-size: 18px; opacity: 0.9; }
+    nav { margin-top: 12px; }
+    nav a { margin: 0 12px; color: #fff; text-decoration: none; font-weight: bold; padding: 6px 10px; border-radius: 4px; transition: background 0.3s; }
+    nav a:hover { background: rgba(255, 255, 255, 0.2); }
 
-    /* Back to Top button styled like Resume button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 16px;
-      border-radius: 6px;
-      border: 1px solid #0366d6;
-      text-decoration: none;
-      color: #fff;
+    section { margin-bottom: 40px; }
+    section h2 { color: #0366d6; border-bottom: 2px solid #0366d6; display: inline-block; padding-bottom: 4px; margin-bottom: 16px; }
+
+    .card { border: 1px solid #e1e4e8; padding: 20px; border-radius: 10px; background: #fff; box-shadow: 0 3px 6px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+
+    a.button { display: inline-block; padding: 10px 16px; border-radius: 6px; text-decoration: none; color: #fff; background: #0366d6; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
+    a.button:hover { background: #024f9c; transform: scale(1.05); }
+
+    footer { padding: 16px; text-align: center; color: #fff; font-size: 90%; margin-top: 40px; border-radius: 10px 10px 0 0; background: linear-gradient(90deg, #024f9c, #0366d6); }
+    .back-to-top { position: fixed; bottom: 20px; right: 20px; padding: 10px 16px; border-radius: 6px; text-decoration: none; color: #fff; background: #0366d6; font-weight: bold; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
+    .back-to-top:hover { background: #024f9c; transform: scale(1.05); }
+
+    /* TIMELINE STYLES */
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 30px;
+      border-left: 3px solid #0366d6;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
       background: #0366d6;
-      font-weight: bold;
-      font-size: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #0366d6;
     }
-    .back-to-top:hover {
-      background: #024f9c;
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #024f9c;
+    }
+    .timeline-item p {
+      margin: 4px 0 0;
+      color: #444;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    
+
     <!-- HEADER -->
     <header>
       <h1>Gihan Kaushalya Kariyawasam</h1>
@@ -66,60 +91,68 @@
     <!-- ABOUT -->
     <section id="about" class="card" style="display:flex; flex-wrap:wrap; align-items:center; gap:20px;">
       <div style="flex:0 0 auto; text-align:center;">
-        <img src="profile.jpg" alt="Profile photo" style="max-width:180px; border-radius:50%; border:3px solid #0366d6;">
+        <img src="profile.jpg" alt="Profile photo" style="max-width:180px; border-radius:50%; border:4px solid #0366d6;">
       </div>
       <div style="flex:1; min-width:250px;">
-        <h2 style="color:#0366d6; margin-top:0;">About Me</h2>
+        <h2>About Me</h2>
         <p>I am a Biotechnology undergraduate seeking a Medical Laboratory Technician Trainee position to apply and enhance laboratory skills, attention to detail, and contribute to quality control and diagnostic procedures.</p>
         <p class="small"><b>Permanent Address:</b> 14/2, Kanampella Rd, Kosgama</p>
       </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION (Timeline Style) -->
     <section id="education">
-      <h2 style="color:#0366d6;">Education</h2>
+      <h2>Education</h2>
       <div class="card">
-        <dl>
-          <dt>BSc (Hons) in Biotechnology</dt>
-          <dd>Sri Lanka Institute of Information Technology (SLIIT), Malabe</dd>
+        <div class="timeline">
 
-          <dt>G.C.E. Advanced Level (Bio Science Stream)</dt>
-          <dd>Ananda College, Colombo 10 (Chemistry- C, Physics- S, Biology- C)</dd>
+          <div class="timeline-item">
+            <h3>BSc (Hons) in Biotechnology</h3>
+            <p>Sri Lanka Institute of Information Technology (SLIIT), Malabe</p>
+          </div>
 
-          <dt>G.C.E. Ordinary Level</dt>
-          <dd>Ananda College, Colombo 10 — 9As</dd>
-        </dl>
+          <div class="timeline-item">
+            <h3>G.C.E. Advanced Level (Bio Science Stream)</h3>
+            <p>Ananda College, Colombo 10 — (Chemistry: C, Physics: S, Biology: C)</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>G.C.E. Ordinary Level</h3>
+            <p>Ananda College, Colombo 10 — 9As</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
-      <h2 style="color:#0366d6;">Skills</h2>
+      <h2>Skills</h2>
       <div class="card">
         <ul style="line-height:1.8;">
-          <li>Laboratory skills</li>
-          <li>Quality control</li>
-          <li>Communication & teamwork</li>
-          <li>Attention to detail</li>
-          <li>Leadership</li>
+          <li>🧪 Laboratory skills</li>
+          <li>✔ Quality control</li>
+          <li>💬 Communication & teamwork</li>
+          <li>🔍 Attention to detail</li>
+          <li>🌟 Leadership</li>
         </ul>
       </div>
     </section>
 
     <!-- ACTIVITIES -->
     <section id="activities">
-      <h2 style="color:#0366d6;">Extra-Curricular Activities</h2>
+      <h2>Extra-Curricular Activities</h2>
       <div class="card">
         <ul style="line-height:1.8;">
-          <li>Junior Prefect — Ananda College (2013–2014)</li>
-          <li>Member of Science Society — Ananda College (2019–2020)</li>
+          <li>🎓 Junior Prefect — Ananda College (2013–2014)</li>
+          <li>🔬 Member of Science Society — Ananda College (2019–2020)</li>
         </ul>
       </div>
     </section>
 
     <!-- RESUME -->
     <section id="resume">
-      <h2 style="color:#0366d6;">Resume</h2>
+      <h2>Resume</h2>
       <div class="card" style="text-align:center;">
         <p>Download my resume (PDF):</p>
         <a class="button" href="https://drive.google.com/file/d/1UK1I_TqmkkeXcnjzsEp7213xo4akVLtt/view" download>📄 Download Resume</a>
@@ -128,10 +161,10 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2 style="color:#0366d6;">Contact</h2>
+      <h2>Contact</h2>
       <div class="card">
         <p><b>Email:</b> <a href="mailto:gihankariyawasam10@gamil.com" style="color:#0366d6;">gihankariyawasam10@gamil.com</a></p>
-        <p><b>Phone:</b> +94 76 581 2580</p>
+        <p><b>Phone:</b> 📞 +94 76 581 2580</p>
       </div>
     </section>
 
