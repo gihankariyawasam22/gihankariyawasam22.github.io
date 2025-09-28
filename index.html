@@ -6,42 +6,123 @@
   <title>Gihan Kariyawasam — e-Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    /* Same base styles from before */
+    /* Dark Scientific Theme */
     html { scroll-behavior: smooth; }
     body {
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
       margin: 0; padding: 0;
-      color: #24292e;
-      background: linear-gradient(120deg, #f0f7ff, #ffffff);
+      background: #0d1117;  /* GitHub dark background */
+      color: #e6edf3;
+      line-height: 1.6;
     }
+
     .container { max-width: 950px; margin: 40px auto; padding: 0 20px; }
 
-    header { background: #0366d6; color: #fff; padding: 30px 20px; border-radius: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-    header h1 { font-size: 34px; margin: 0; }
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0b3d91, #0366d6);
+      color: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+    header h1 { font-size: 34px; margin: 0; font-weight: bold; }
     header p.lead { margin: 8px 0 0; font-size: 18px; opacity: 0.9; }
     nav { margin-top: 12px; }
-    nav a { margin: 0 12px; color: #fff; text-decoration: none; font-weight: bold; padding: 6px 10px; border-radius: 4px; transition: background 0.3s; }
-    nav a:hover { background: rgba(255, 255, 255, 0.2); }
+    nav a {
+      margin: 0 12px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      color: #f0db4f;
+    }
 
+    /* Sections */
     section { margin-bottom: 40px; }
-    section h2 { color: #0366d6; border-bottom: 2px solid #0366d6; display: inline-block; padding-bottom: 4px; margin-bottom: 16px; }
+    section h2 {
+      color: #58a6ff;
+      border-bottom: 2px solid #58a6ff;
+      display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
 
-    .card { border: 1px solid #e1e4e8; padding: 20px; border-radius: 10px; background: #fff; box-shadow: 0 3px 6px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+    /* Cards */
+    .card {
+      border: 1px solid #30363d;
+      padding: 20px;
+      border-radius: 10px;
+      background: #161b22;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.7);
+    }
 
-    a.button { display: inline-block; padding: 10px 16px; border-radius: 6px; text-decoration: none; color: #fff; background: #0366d6; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
-    a.button:hover { background: #024f9c; transform: scale(1.05); }
+    /* Buttons */
+    a.button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #0366d6, #0b3d91);
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: background 0.3s, transform 0.2s;
+    }
+    a.button:hover {
+      background: linear-gradient(90deg, #0d74e7, #1248a5);
+      transform: scale(1.05);
+    }
 
-    footer { padding: 16px; text-align: center; color: #fff; font-size: 90%; margin-top: 40px; border-radius: 10px 10px 0 0; background: linear-gradient(90deg, #024f9c, #0366d6); }
-    .back-to-top { position: fixed; bottom: 20px; right: 20px; padding: 10px 16px; border-radius: 6px; text-decoration: none; color: #fff; background: #0366d6; font-weight: bold; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
-    .back-to-top:hover { background: #024f9c; transform: scale(1.05); }
+    /* Footer */
+    footer {
+      padding: 16px;
+      text-align: center;
+      color: #8b949e;
+      font-size: 90%;
+      margin-top: 40px;
+      border-radius: 10px 10px 0 0;
+      background: #0b3d91;
+    }
 
-    /* TIMELINE STYLES */
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      background: #0366d6;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .back-to-top:hover { background: #0d74e7; transform: scale(1.05); }
+
+    /* Timeline Style for Education & Activities */
     .timeline {
       position: relative;
       margin: 20px 0;
       padding-left: 30px;
-      border-left: 3px solid #0366d6;
+      border-left: 3px solid #58a6ff;
     }
     .timeline-item {
       position: relative;
@@ -55,19 +136,40 @@
       top: 5px;
       width: 16px;
       height: 16px;
-      background: #0366d6;
+      background: #58a6ff;
       border-radius: 50%;
-      border: 2px solid #fff;
-      box-shadow: 0 0 0 2px #0366d6;
+      border: 2px solid #0d1117;
+      box-shadow: 0 0 0 2px #58a6ff;
     }
     .timeline-item h3 {
       margin: 0;
       font-size: 18px;
-      color: #024f9c;
+      color: #f0db4f;
     }
     .timeline-item p {
       margin: 4px 0 0;
-      color: #444;
+      color: #c9d1d9;
+    }
+
+    /* Profile image */
+    #about img {
+      max-width: 180px;
+      border-radius: 50%;
+      border: 4px solid #58a6ff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    /* Skills list with icons */
+    #skills ul { list-style: none; padding: 0; }
+    #skills li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    #skills li::before {
+      content: "⚛️";
+      position: absolute;
+      left: 0;
     }
   </style>
 </head>
@@ -91,7 +193,7 @@
     <!-- ABOUT -->
     <section id="about" class="card" style="display:flex; flex-wrap:wrap; align-items:center; gap:20px;">
       <div style="flex:0 0 auto; text-align:center;">
-        <img src="profile.jpg" alt="Profile photo" style="max-width:180px; border-radius:50%; border:4px solid #0366d6;">
+        <img src="profile.jpg" alt="Profile photo">
       </div>
       <div style="flex:1; min-width:250px;">
         <h2>About Me</h2>
@@ -100,7 +202,7 @@
       </div>
     </section>
 
-    <!-- EDUCATION (Timeline Style) -->
+    <!-- EDUCATION -->
     <section id="education">
       <h2>Education</h2>
       <div class="card">
@@ -129,12 +231,12 @@
     <section id="skills">
       <h2>Skills</h2>
       <div class="card">
-        <ul style="line-height:1.8;">
-          <li>🧪 Laboratory skills</li>
-          <li>✔ Quality control</li>
-          <li>💬 Communication & teamwork</li>
-          <li>🔍 Attention to detail</li>
-          <li>🌟 Leadership</li>
+        <ul>
+          <li>Laboratory techniques</li>
+          <li>Quality control</li>
+          <li>Communication & teamwork</li>
+          <li>Attention to detail</li>
+          <li>Leadership</li>
         </ul>
       </div>
     </section>
@@ -143,10 +245,16 @@
     <section id="activities">
       <h2>Extra-Curricular Activities</h2>
       <div class="card">
-        <ul style="line-height:1.8;">
-          <li>🎓 Junior Prefect — Ananda College (2013–2014)</li>
-          <li>🔬 Member of Science Society — Ananda College (2019–2020)</li>
-        </ul>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Junior Prefect</h3>
+            <p>Ananda College (2013–2014)</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Science Society Member</h3>
+            <p>Ananda College (2019–2020)</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -163,7 +271,7 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="card">
-        <p><b>Email:</b> <a href="mailto:gihankariyawasam10@gamil.com" style="color:#0366d6;">gihankariyawasam10@gamil.com</a></p>
+        <p><b>Email:</b> <a href="mailto:gihankariyawasam10@gamil.com" style="color:#58a6ff;">gihankariyawasam10@gamil.com</a></p>
         <p><b>Phone:</b> 📞 +94 76 581 2580</p>
       </div>
     </section>
@@ -175,8 +283,7 @@
 
   </div>
 
-  <!-- Back to Top button -->
+  <!-- Back to Top -->
   <a href="#" class="back-to-top">⬆ Back to Top</a>
-
 </body>
 </html>
